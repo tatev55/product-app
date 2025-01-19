@@ -13,6 +13,7 @@ export const Card = () => {
        
         api.getProducts()
             .then(data => {
+                
                 if (data && data.products) {
                     setData(data.products);
                 }
@@ -32,9 +33,11 @@ export const Card = () => {
 
             <div className="card-body">
                 {data.map(product => (
+                    
+                    
                     <div className="card-body-item" key={product.id} >
                         <img src={product.images[0]} className="image" alt={product.name} />
-                        <h3>{product.name}</h3>
+                        <h3>{product.title}</h3>
                         <p>{product.description}</p>
                         <p>${product.price}</p>
                         <i className ="fa-solid fa-star" style={{ color: 'gold' }} id={`star-${product.id}`}></i>
